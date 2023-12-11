@@ -1,19 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start" (click)="closeModal()"> close </ion-buttons>
+    <ion-buttons slot="start" (click)="closeModal()">
+      <ion-icon name="arrow-back" color="primary" size="large"></ion-icon>
+    </ion-buttons>
     <ion-title> Chat </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <ion-list *ngIf="messages.length > 0">
     <ion-item *ngFor="let message of messages">
       <ion-label>
-        <h2>{{ message.user }}</h2>
+        <h2>{{ message.sender }}</h2>
         <p>{{ message.message }}</p>
       </ion-label>
     </ion-item>
   </ion-list>
+  <div #chatScroll></div>
 </ion-content>
 
 <ion-footer>
@@ -34,6 +37,7 @@
             expand="block"
             shape="round"
             (click)="sendMessage(); message = ''"
+            [disabled]="!message"
           >
             Send
           </ion-button>

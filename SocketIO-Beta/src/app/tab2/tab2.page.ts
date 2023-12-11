@@ -13,6 +13,7 @@ import { ChatModalComponent } from '../chat-modal/chat-modal.component';
 export class Tab2Page implements OnInit {
   user: string = '';
   users: any = [];
+  groups: any = [];
 
   constructor(
     private http: HttpClient,
@@ -20,10 +21,10 @@ export class Tab2Page implements OnInit {
     public modalController: ModalController
   ) {}
 
-  async searchUser(event: any) {
+  searchUser(event: any) {
     this.users = [];
     if (event.target.value !== '') {
-      await this.http
+      this.http
         .post('http://localhost:4000/search', {
           query: `${event.target.value}`,
         })
@@ -38,24 +39,53 @@ export class Tab2Page implements OnInit {
     console.log(this.users);
   }
 
-  async openChat(user: any) {
-    // const modal = this.modalController
-    //   .create({
-    //     component: ChatModalComponent,
-    //     componentProps: {
-    //       from: this.user,
-    //       to: user,
-    //       roomId: this.user + user.alias,
-    //     },
-    //   })
-    //   .then((modal) => {
-    //     modal.present();
-    //   });
+  openChat(user: any) {
+    this.http
+      .post('http://localhost:4000/chat', {
+        roomId: this.user + user.alias,
+        participants: [this.user, user.alias],
+      })
+      .subscribe((data: any) => {
+        // console.log(data);
+        const modal = this.modalController
+          .create({
+            component: ChatModalComponent,
+            componentProps: {
+              user: this.user,
+              participants: [this.user, user.alias],
+              roomId: data.roomId,
+            },
+          })
+          .then((modal) => {
+            modal.present();
+          });
+      });
+    // modal.then(modal => modal.present());
   }
 
-  // modal.then(modal => modal.present());
+  openGroup(group: any) {
+    const modal = this.modalController
+      .create({
+        component: ChatModalComponent,
+        componentProps: {
+          user: this.user,
+          participants: [],
+          roomId: group.roomId,
+        },
+      })
+      .then((modal) => {
+        modal.present();
+      });
+  }
 
   ngOnInit() {
     this.user = 'EdMo';
+
+    this.http
+      .get('http://localhost:4000/chat/public')
+      .subscribe((data: any) => {
+        console.log(data);
+        this.groups = data;
+      });
   }
 }

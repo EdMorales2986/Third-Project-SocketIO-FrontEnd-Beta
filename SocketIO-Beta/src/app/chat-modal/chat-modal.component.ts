@@ -1,4 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ViewChild,
+  ElementRef,
+  AfterViewChecked,
+} from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -9,22 +16,14 @@ import { io } from 'socket.io-client';
   templateUrl: './chat-modal.component.html',
   styleUrls: ['./chat-modal.component.scss'],
 })
-export class ChatModalComponent implements OnInit {
-  @Input() from!: string;
-  @Input() to!: string;
+export class ChatModalComponent implements OnInit, AfterViewChecked {
+  @Input() user!: string;
+  @Input() participants!: string;
   @Input() roomId!: string;
+  @ViewChild('chatScroll') chatScroll!: ElementRef;
 
   message: string = '';
-  messages: any = [
-    {
-      message: 'hi',
-      user: 'me',
-    },
-    {
-      message: 'hello',
-      user: 'you',
-    },
-  ];
+  messages: any = [];
   private socket: any;
 
   constructor(
@@ -36,12 +35,28 @@ export class ChatModalComponent implements OnInit {
   }
 
   sendMessage() {
-    this.socket.emit('message', {
+    const msg = {
       message: this.message,
-      user: this.from,
-      roomId: this.roomId,
+      sender: this.user,
+    };
+
+    this.http
+      .post('http://localhost:4000/chat/message', {
+        message: msg,
+        roomId: this.roomId,
+      })
+      .subscribe((data: any) => {
+        this.socket.emit('message', {
+          message: msg.message,
+          sender: msg.sender,
+          roomId: this.roomId,
+        });
+        this.message = '';
+      });
+
+    this.chatScroll.nativeElement.scrollIntoView({
+      behavior: 'smooth',
     });
-    this.message = '';
   }
 
   closeModal() {
@@ -58,16 +73,22 @@ export class ChatModalComponent implements OnInit {
       roomId: this.roomId,
     });
 
-    // this.http
-    //   .get('http://localhost:4000/chat/' + this.roomId)
-    //   .subscribe((data) => {
-    //     this.messages = data;
-    //     console.log(data);
-    //   });
+    this.http
+      .get('http://localhost:4000/chat/messages/' + this.roomId)
+      .subscribe((data: any) => {
+        this.messages = data.messages;
+        // console.log(this.messages);
+      });
 
     this.socket.on('message', (data: any) => {
       console.log(data);
-      // this.messages.push(data);
+      this.messages.push(data);
+    });
+  }
+
+  ngAfterViewChecked() {
+    this.chatScroll.nativeElement.scrollIntoView({
+      behavior: 'smooth',
     });
   }
 }
