@@ -1,0 +1,7 @@
+{
+  "name": "SocketIO-Beta",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

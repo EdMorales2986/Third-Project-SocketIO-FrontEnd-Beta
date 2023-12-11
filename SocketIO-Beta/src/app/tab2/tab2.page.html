@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Tab 2 </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar
+      [debounce]="1000"
+      animated="true"
+      (ionInput)="searchUser($event)"
+    />
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 2</ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+      <ion-searchbar
+        [debounce]="1000"
+        animated="true"
+        (ionInput)="searchUser($event)"
+      />
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list *ngIf="users.length > 0" [inset]="true">
+    <ion-item *ngFor="let user of users">
+      <ion-avatar slot="start">
+        <img [src]="user.profilePic" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ user.name }}</h2>
+        <p>{{ user.email }}</p>
+      </ion-label>
+      <ion-button
+        id="chat-button"
+        fill="clear"
+        color="primary"
+        (click)="openChat(user)"
+        slot="end"
+      >
+        <ion-icon slot="icon-only" name="chatbubbles"></ion-icon
+      ></ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
