@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="header-content">
+      <ion-img src="https://i.imgur.com/yFztWNQ.png"></ion-img>
+      <ion-title>Rotten Mango</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item-divider class="divider"> Movies </ion-item-divider>
+  <div class="covers-container">
+    <div class="movie-cover" *ngFor="let cover of coverM">
+      <img [src]="cover.posterURL" alt="Movie Poster" class="poster-image" />
+      <div class="overlay">
+        <div class="details">
+          <div class="name">{{ cover.title }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ion-item-divider class="divider"> TV Shows </ion-item-divider>
+  <div class="covers-container">
+    <div class="movie-cover" *ngFor="let cover of coverS">
+      <img [src]="cover.posterURL" alt=" " class="poster-image" />
+      <div class="overlay">
+        <div class="details">
+          <div class="name">{{ cover.title }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,135 @@
+ion-header {
+    ion-toolbar {
+        --background: linear-gradient(to right, #d65753, rgb(224, 148, 87));
+        --color: #ffffff;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+    }
+
+    ion-img {
+        width: 40px;
+        height: auto;
+        margin-right: 5px;
+        /* Ajusta según sea necesario para el espaciado entre la imagen y el título */
+    }
+
+    ion-title {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin: 0;
+        /* Elimina el margen predeterminado del título */
+        padding: 0;
+        /* Elimina el padding predeterminado del título */
+        text-align: left;
+    }
+}
+
+ion-content {
+
+    // ion-img {
+    //   width: 100%;
+    //   height: 100vh;
+    //   position: absolute;
+    //   z-index: -1;
+
+    // }
+
+    .covers-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* Tres columnas con tamaño flexible */
+        gap: 10px;
+        /* Espaciado entre los elementos */
+        padding: 10px
+    }
+
+    app-cover {
+        width: 100%;
+        /* O ajusta el ancho según tus necesidades para dejar espacio para el margen entre los elementos */
+        margin-bottom: 10px;
+        /* Espaciado entre las filas */
+    }
+}
+
+.tab-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    /* Ajustado para ocupar el 100% de la altura vertical */
+    background: linear-gradient(to left, #d65753, #ff3366);
+}
+
+.tab-container ion-tab-button {
+    flex: 1;
+    text-align: center;
+    margin: 0 8px;
+    /* Ajusta el valor del margen según tus preferencias */
+    background-color: transparent;
+    color: azure;
+}
+
+.movie-cover {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+
+    .poster-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        display: block;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 16px;
+        background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+    }
+
+    .details {
+        color: #fff;
+    }
+
+    .likes {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .name {
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 8px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+    }
+
+    .category {
+        font-size: 14px;
+        margin-top: 4px;
+        background-color: #ff3366;
+        /* Color de fondo de la categoría */
+        color: #fff;
+        /* Color del texto de la categoría */
+        padding: 4px 10px;
+        /* Ajusta el espacio interno del fondo redondeado */
+        border-radius: 40px;
+        /* Radio de borde para hacer el fondo redondeado */
+        display: inline-block;
+        /* Para que el fondo se ajuste al contenido */
+    }
+}
