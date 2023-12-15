@@ -47,14 +47,18 @@ export class FeedPage implements OnInit {
   }
 
   async ngOnInit() {
-    this.http.get('http://localhost:4000/movies').subscribe((data: any) => {
-      this.coverM = data;
-      // console.log(this.coverM[0].genres);
-    });
+    this.http
+      .get('https://tmdb-for-a-angularmovile.onrender.com/movies')
+      .subscribe((data: any) => {
+        this.coverM = data;
+        // console.log(this.coverM[0].genres);
+      });
 
-    this.http.get('http://localhost:4000/series').subscribe((data: any) => {
-      this.coverS = data;
-    });
+    this.http
+      .get('https://tmdb-for-a-angularmovile.onrender.com/series')
+      .subscribe((data: any) => {
+        this.coverS = data;
+      });
 
     const data = await Preferences.get({ key: 'alias' });
     this.user = data.value!;
@@ -66,13 +70,17 @@ export class FeedPage implements OnInit {
     this.coverM = [];
     this.coverS = [];
 
-    this.http.get('http://localhost:4000/movies').subscribe((data: any) => {
-      this.coverM = data;
-      // console.log(this.coverM[0].genres);
-    });
+    this.http
+      .get('https://tmdb-for-a-angularmovile.onrender.com/movies')
+      .subscribe((data: any) => {
+        this.coverM = data;
+        // console.log(this.coverM[0].genres);
+      });
 
-    this.http.get('http://localhost:4000/series').subscribe((data: any) => {
-      this.coverS = data;
-    });
+    this.http
+      .get('https://tmdb-for-a-angularmovile.onrender.com/series')
+      .subscribe((data: any) => {
+        this.coverS = data;
+      });
   }
 }

@@ -52,7 +52,7 @@ export class SearchPage implements OnInit {
     this.coverS = [];
     if (event.target.value !== '') {
       this.http
-        .post('http://localhost:4000/movies/search', {
+        .post('https://tmdb-for-a-angularmovile.onrender.com/movies/search', {
           query: `${event.target.value}`,
         })
         .subscribe({
@@ -65,7 +65,7 @@ export class SearchPage implements OnInit {
         });
 
       this.http
-        .post('http://localhost:4000/series/search', {
+        .post('https://tmdb-for-a-angularmovile.onrender.com/series/search', {
           query: `${event.target.value}`,
         })
         .subscribe({
@@ -85,7 +85,7 @@ export class SearchPage implements OnInit {
     if (event.detail.value !== '') {
       this.http
         .get(
-          `http://localhost:4000/movies/filter/duration/${event.detail.value}`
+          `https://tmdb-for-a-angularmovile.onrender.com/movies/filter/duration/${event.detail.value}`
         )
         .subscribe({
           next: (data: any) => {
@@ -103,9 +103,12 @@ export class SearchPage implements OnInit {
     this.coverS = [];
     if (event.detail.value !== '') {
       this.http
-        .post(`http://localhost:4000/movies/filter/genre`, {
-          genre: `${event.detail.value}`,
-        })
+        .post(
+          `https://tmdb-for-a-angularmovile.onrender.com/movies/filter/genre`,
+          {
+            genre: `${event.detail.value}`,
+          }
+        )
         .subscribe({
           next: (data: any) => {
             this.coverM = data;
@@ -122,9 +125,12 @@ export class SearchPage implements OnInit {
     this.coverS = [];
     if (event.detail.value !== '') {
       this.http
-        .post(`http://localhost:4000/series/filter/genre`, {
-          genre: `${event.detail.value}`,
-        })
+        .post(
+          `https://tmdb-for-a-angularmovile.onrender.com/series/filter/genre`,
+          {
+            genre: `${event.detail.value}`,
+          }
+        )
         .subscribe({
           next: (data: any) => {
             this.coverS = data;
@@ -141,7 +147,9 @@ export class SearchPage implements OnInit {
     this.coverS = [];
     if (startYear !== 0 && endYear !== 0) {
       this.http
-        .get(`http://localhost:4000/movies/filter/year/${startYear}/${endYear}`)
+        .get(
+          `https://tmdb-for-a-angularmovile.onrender.com/movies/filter/year/${startYear}/${endYear}`
+        )
         .subscribe({
           next: (data: any) => {
             this.coverM = data;
@@ -151,7 +159,9 @@ export class SearchPage implements OnInit {
           },
         });
       this.http
-        .get(`http://localhost:4000/series/filter/year/${startYear}/${endYear}`)
+        .get(
+          `https://tmdb-for-a-angularmovile.onrender.com/series/filter/year/${startYear}/${endYear}`
+        )
         .subscribe({
           next: (data: any) => {
             this.coverS = data;

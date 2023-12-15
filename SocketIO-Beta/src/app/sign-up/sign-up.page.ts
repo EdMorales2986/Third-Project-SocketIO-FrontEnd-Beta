@@ -29,7 +29,7 @@ export class SignUpPage implements OnInit {
   // BACK+FRONT
   onSubmit() {
     this.http
-      .post('http://localhost:4000/signup', {
+      .post('https://tmdb-for-a-angularmovile.onrender.com/signup', {
         name: this.name,
         email: this.email,
         alias: this.username,

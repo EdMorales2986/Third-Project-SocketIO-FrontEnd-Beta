@@ -51,7 +51,9 @@ export class CoversComponent implements OnInit {
     const encodedTitle = encodeURI(review.mediaTitle);
 
     this.http
-      .delete(`http://localhost:4000/reviews/${value}/${encodedTitle}`)
+      .delete(
+        `https://tmdb-for-a-angularmovile.onrender.com/reviews/${value}/${encodedTitle}`
+      )
       .subscribe((data: any) => {
         this.loadReviews();
         // console.log(data);
@@ -63,7 +65,7 @@ export class CoversComponent implements OnInit {
     this.user = data.value!;
 
     this.http
-      .post('http://localhost:4000/all/reviews', {
+      .post('https://tmdb-for-a-angularmovile.onrender.com/all/reviews', {
         mediaTitle: this.cover.title,
       })
       .subscribe((data: any) => {

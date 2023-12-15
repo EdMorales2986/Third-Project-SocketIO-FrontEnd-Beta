@@ -23,7 +23,7 @@ export class SignInPage implements OnInit {
   async ngOnInit() {
     const { value } = await Preferences.get({ key: 'jwt' });
     this.http
-      .post('http://localhost:4000/jwt-verify', {
+      .post('https://tmdb-for-a-angularmovile.onrender.com/jwt-verify', {
         token: `${value}`,
       })
       .subscribe({
@@ -44,7 +44,7 @@ export class SignInPage implements OnInit {
   onSubmit() {
     this.http
       .post(
-        'http://localhost:4000/signin',
+        'https://tmdb-for-a-angularmovile.onrender.com/signin',
         {
           alias: this.username,
           password: this.password,

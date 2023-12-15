@@ -26,7 +26,7 @@ export class Tab2Page implements OnInit {
     this.users = [];
     if (event.target.value !== '') {
       this.http
-        .post('http://localhost:4000/search', {
+        .post('https://tmdb-for-a-angularmovile.onrender.com/search', {
           query: `${event.target.value}`,
         })
         .subscribe((data: any) => {
@@ -42,7 +42,7 @@ export class Tab2Page implements OnInit {
 
   openChat(user: any) {
     this.http
-      .post('http://localhost:4000/chat', {
+      .post('https://tmdb-for-a-angularmovile.onrender.com/chat', {
         roomId: this.user + user.alias,
         participants: [this.user, user.alias],
       })
@@ -84,7 +84,7 @@ export class Tab2Page implements OnInit {
     this.user = data.value!;
 
     this.http
-      .get('http://localhost:4000/chat/public')
+      .get('https://tmdb-for-a-angularmovile.onrender.com/chat/public')
       .subscribe((data: any) => {
         console.log(data);
         this.groups = data;

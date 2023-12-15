@@ -31,7 +31,7 @@ export class CreateReviewComponent implements OnInit {
     const { value } = await Preferences.get({ key: 'alias' });
 
     this.http
-      .post(`http://localhost:4000/reviews/${value}`, {
+      .post(`https://tmdb-for-a-angularmovile.onrender.com/reviews/${value}`, {
         mediaTitle: this.review.title,
         rating: this.rating,
         description: this.description,

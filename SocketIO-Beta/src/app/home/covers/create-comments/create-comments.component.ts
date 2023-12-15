@@ -36,22 +36,27 @@ export class CreateCommentsComponent implements OnInit {
 
     this.loading = true;
 
-    this.http.post(`http://localhost:4000/comments/create`, comment).subscribe({
-      next: (data: any) => {
-        this.loading = false;
-        this.modalController.dismiss();
-      },
-      error: async (error: HttpErrorResponse) => {
-        this.loading = false;
-        const alert = await this.alertController.create({
-          header: 'Error',
-          message: error.error.message,
-          buttons: ['OK'],
-        });
-        this.modalController.dismiss();
-        await alert.present();
-      },
-    });
+    this.http
+      .post(
+        `https://tmdb-for-a-angularmovile.onrender.com/comments/create`,
+        comment
+      )
+      .subscribe({
+        next: (data: any) => {
+          this.loading = false;
+          this.modalController.dismiss();
+        },
+        error: async (error: HttpErrorResponse) => {
+          this.loading = false;
+          const alert = await this.alertController.create({
+            header: 'Error',
+            message: error.error.message,
+            buttons: ['OK'],
+          });
+          this.modalController.dismiss();
+          await alert.present();
+        },
+      });
   }
 
   ngOnInit() {

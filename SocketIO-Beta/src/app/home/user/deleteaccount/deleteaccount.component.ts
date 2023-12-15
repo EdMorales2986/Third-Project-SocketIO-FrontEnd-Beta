@@ -29,22 +29,26 @@ export class DeleteaccountComponent implements OnInit {
     this.loading = true;
     const password = this.password;
 
-    this.http.delete(`http://localhost:4000/${value}/${password}`).subscribe({
-      next: (data: any) => {
-        this.loading = false;
-        this.modalController.dismiss();
-      },
-      error: async (error: HttpErrorResponse) => {
-        this.loading = false;
-        const alert = await this.alertController.create({
-          header: 'Error',
-          message: error.error.message,
-          buttons: ['OK'],
-        });
-        this.modalController.dismiss();
-        await alert.present();
-      },
-    });
+    this.http
+      .delete(
+        `https://tmdb-for-a-angularmovile.onrender.com/${value}/${password}`
+      )
+      .subscribe({
+        next: (data: any) => {
+          this.loading = false;
+          this.modalController.dismiss();
+        },
+        error: async (error: HttpErrorResponse) => {
+          this.loading = false;
+          const alert = await this.alertController.create({
+            header: 'Error',
+            message: error.error.message,
+            buttons: ['OK'],
+          });
+          this.modalController.dismiss();
+          await alert.present();
+        },
+      });
   }
 
   ngOnInit() {}

@@ -31,7 +31,9 @@ export class ChatModalComponent implements OnInit, AfterViewChecked {
     private http: HttpClient,
     private router: Router
   ) {
-    this.socket = io('http://localhost:4000', { autoConnect: false });
+    this.socket = io('https://tmdb-for-a-angularmovile.onrender.com', {
+      autoConnect: false,
+    });
   }
 
   sendMessage() {
@@ -41,7 +43,7 @@ export class ChatModalComponent implements OnInit, AfterViewChecked {
     };
 
     this.http
-      .post('http://localhost:4000/chat/message', {
+      .post('https://tmdb-for-a-angularmovile.onrender.com/chat/message', {
         message: msg,
         roomId: this.roomId,
       })
@@ -74,7 +76,10 @@ export class ChatModalComponent implements OnInit, AfterViewChecked {
     });
 
     this.http
-      .get('http://localhost:4000/chat/messages/' + this.roomId)
+      .get(
+        'https://tmdb-for-a-angularmovile.onrender.com/chat/messages/' +
+          this.roomId
+      )
       .subscribe((data: any) => {
         this.messages = data.messages;
         // console.log(this.messages);

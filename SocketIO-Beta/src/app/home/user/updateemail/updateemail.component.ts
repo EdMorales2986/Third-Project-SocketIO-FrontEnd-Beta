@@ -32,10 +32,13 @@ export class UpdateemailComponent implements OnInit {
     const password = this.password;
 
     this.http
-      .put(`http://localhost:4000/${value}/updateEmail`, {
-        email: email,
-        oldPass: password,
-      })
+      .put(
+        `https://tmdb-for-a-angularmovile.onrender.com/${value}/updateEmail`,
+        {
+          email: email,
+          oldPass: password,
+        }
+      )
       .subscribe({
         next: (data: any) => {
           this.loading = false;

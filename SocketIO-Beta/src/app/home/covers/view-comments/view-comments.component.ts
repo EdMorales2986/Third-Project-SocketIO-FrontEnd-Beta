@@ -29,7 +29,7 @@ export class ViewCommentsComponent implements OnInit {
     const id = this.origin;
 
     this.http
-      .get(`http://localhost:4000/comments/${id}`)
+      .get(`https://tmdb-for-a-angularmovile.onrender.com/comments/${id}`)
       .subscribe((data: any) => {
         this.comments = data;
       });
@@ -39,7 +39,9 @@ export class ViewCommentsComponent implements OnInit {
     const { value } = await Preferences.get({ key: 'alias' });
 
     this.http
-      .delete(`http://localhost:4000/comments/${value}/${comment._id}`)
+      .delete(
+        `https://tmdb-for-a-angularmovile.onrender.com/comments/${value}/${comment._id}`
+      )
       .subscribe((data: any) => {
         this.loadComments();
         // console.log(data);
