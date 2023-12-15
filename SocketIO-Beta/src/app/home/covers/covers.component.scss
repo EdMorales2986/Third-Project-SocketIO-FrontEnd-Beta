@@ -1,0 +1,202 @@
+ion-header {
+    ion-toolbar {
+        --background: linear-gradient(to left, #c7423e, rgb(239, 174, 121)); // Fondo degradado de naranja a amarillo
+        --color: #ffffff; // Cambia el color del texto del encabezado
+    }
+
+    ion-title {
+        font-size: 1.5em; // Ajusta el tamaño del texto del título
+        font-weight: bold; // Ajusta el peso de la fuente del título
+    }
+}
+
+ion-content {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    ion-img {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        z-index: -1;
+        object-fit: cover;
+    }
+
+    .ion-peli-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 100px;
+    }
+
+    .ion-center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        //   margin-top: 100px;
+    }
+
+    .peli-info {
+        display: flex;
+        align-items: center;
+    }
+
+    .info-container {
+        flex: 1;
+        display: flex;
+    }
+
+    .info-column {
+        flex: 1;
+        padding: 20px;
+        margin: 10px;
+        background-color: #ff3366;
+        border-radius: 10px;
+    }
+
+    .info-text {
+        flex: 1;
+        padding: 20px;
+        margin: 10px;
+        background-color: #000000;
+        border-radius: 10px;
+    }
+
+    .transparent-icon-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // background-color: rgba(0, 0, 255, 0); /* Color azul con opacidad */
+        width: 7em;
+        /* Ajusta el ancho según tus necesidades */
+        height: 7rem;
+        /* Ajusta la altura según tus necesidades */
+        // border-radius: 50%; /* Hace que el contenedor sea circular */
+        //  object-fit: contain;
+
+        /* Agrega un efecto de sombra radial hacia afuera */
+        // box-shadow: 0 0 40px 40px rgba(255, 255, 255, 0.2);
+        margin-bottom: 20px;
+        /* Ajusta el margen inferior según tus necesidades */
+    }
+
+    .transparent-icon-container ion-img {
+        width: 20%;
+        /* Ajusta el ancho según tus necesidades */
+        height: 20%;
+        object-fit: contain;
+    }
+
+    ion-card {
+        width: 90%;
+        background-color: rgba(205, 229, 221, 0.1);
+        backdrop-filter: blur(5px); // Efecto de vidrio esmerilado
+    }
+
+    ion-card-content {
+        //   backdrop-filter: blur(2px); // Puedes ajustar la intensidad del vidrio esmerilado
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        ion-item {
+            width: 100%;
+            max-width: 700px;
+            /* Ajusta el ancho máximo del formulario según tus necesidades */
+            border-radius: 10px;
+            margin-bottom: 10px;
+            --background: #000000;
+
+            ion-input {
+                --background: #000000;
+                margin-bottom: 20px;
+                --placeholder-color: #000000;
+                --color: #000;
+            }
+        }
+
+        ion-button {
+            width: 100%;
+            max-width: 400px;
+            /* Ajusta el ancho máximo del botón según tus necesidades */
+            margin-top: 10px;
+            --background: rgb(255, 255, 255);
+            --color: rgb(75, 30, 0);
+            --border-radius: 20px;
+
+        }
+    }
+}
+
+.movie-cover {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+
+    .poster-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        display: block;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 16px;
+        background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+    }
+
+    .details {
+        color: #fff;
+    }
+
+    .likes {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .name {
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 8px;
+
+    }
+
+    .category {
+        font-size: 14px;
+        margin-top: 4px;
+        background-color: #ff3366;
+        /* Color de fondo de la categoría */
+        color: #fff;
+        /* Color del texto de la categoría */
+        padding: 4px 10px;
+        /* Ajusta el espacio interno del fondo redondeado */
+        border-radius: 40px;
+        /* Radio de borde para hacer el fondo redondeado */
+        display: inline-block;
+        /* Para que el fondo se ajuste al contenido */
+    }
+}
+
+iframe {
+    max-width: 100%;
+}

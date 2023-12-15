@@ -1,3 +1,95 @@
-<p>
-  covers works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismissModal()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ this.cover.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addReview()">
+      <ion-icon name="create"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <iframe
+    width="100%"
+    height="auto"
+    [src]="this.safeURL"
+    frameborder="0"
+    allowfullscreen
+    *ngIf="this.cover.trailerURL != 'not available'"
+  ></iframe>
+  <div class="peli-info">
+    <div class="movie-cover">
+      <img [src]="this.cover.posterURL" alt=" " class="poster-image" />
+
+      <div class="info-container">
+        <div class="info-column">
+          <h3>Overview</h3>
+          <p>{{ this.cover.overview }}</p>
+          <p>
+            Release Date:
+            {{ this.cover.releaseDate || this.cover.firstAirDate }}
+          </p>
+          <p>Public Rating: {{ this.cover.publicRatings }}</p>
+          <p>Critics Rating: {{ this.cover.criticsRatings }}</p>
+
+          <h3>Genres</h3>
+          <div *ngFor="let genre of this.cover.genres">{{ "- " + genre }}</div>
+
+          <div *ngIf="this.cover?.seasons">
+            <div *ngFor="let season of this.cover.seasons">
+              <div class="season">
+                <h4>{{ season.name }}</h4>
+                <p>- Episodes: {{ season.episodes }}</p>
+                <p>- Air Date: {{ season.airdate }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <ion-item *ngFor="let review of reviews">
+      <ion-card>
+        <ion-card-header>
+          <ion-icon
+            name="sparkles"
+            *ngIf="review.type == 'critic'"
+            color="warning"
+          ></ion-icon>
+          <ion-card-title>{{ review.owner }}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <p>Rating: {{ review.rating }}</p>
+          <p>{{ review.description }}</p>
+
+          <ion-button
+            *ngIf="review.owner == this.user"
+            (click)="deleteReview(review)"
+            color="danger"
+            fill="outline"
+          >
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+
+          <ion-button
+            (click)="viewComments(review)"
+            color="terciary"
+            fill="outline"
+          >
+            <ion-icon name="chatbox"></ion-icon>
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </div>
+</ion-content>

@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismissModal()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title> Comments </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addComment()">
+      <ion-icon name="create"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-list>
+    <ion-item *ngFor="let comment of comments">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{ comment.owner }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{ comment.desc }}</p>
+          <ion-button
+            fill="clear"
+            size="small"
+            color="danger"
+            (click)="deleteComment(comment)"
+          >
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+
+          <ion-button
+            fill="clear"
+            size="small"
+            color="primary"
+            (click)="viewComments(comment)"
+          >
+            <ion-icon name="chatbox"></ion-icon>
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

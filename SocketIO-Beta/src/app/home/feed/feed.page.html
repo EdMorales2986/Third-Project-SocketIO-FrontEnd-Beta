@@ -10,7 +10,11 @@
 <ion-content [fullscreen]="true">
   <ion-item-divider class="divider"> Movies </ion-item-divider>
   <div class="covers-container">
-    <div class="movie-cover" *ngFor="let cover of coverM">
+    <div
+      class="movie-cover"
+      *ngFor="let cover of coverM"
+      (click)="openModal1(cover)"
+    >
       <img [src]="cover.posterURL" alt="Movie Poster" class="poster-image" />
       <div class="overlay">
         <div class="details">
@@ -21,7 +25,11 @@
   </div>
   <ion-item-divider class="divider"> TV Shows </ion-item-divider>
   <div class="covers-container">
-    <div class="movie-cover" *ngFor="let cover of coverS">
+    <div
+      class="movie-cover"
+      *ngFor="let cover of coverS"
+      (click)="openModal2(cover)"
+    >
       <img [src]="cover.posterURL" alt=" " class="poster-image" />
       <div class="overlay">
         <div class="details">

@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <ion-label position="floating">Description</ion-label>
+  <ion-textarea
+    [(ngModel)]="desc"
+    fill="outline"
+    [autoGrow]="true"
+  ></ion-textarea>
+
+  <ion-button
+    (click)="addComment()"
+    color="primary"
+    expand="block"
+    [disabled]="loading"
+    >Add Review</ion-button
+  >
+  <ion-button (click)="dismissModal()" color="danger" expand="block"
+    >Cancel</ion-button
+  >
+</div>

@@ -1,0 +1,97 @@
+ion-header {
+    ion-toolbar {
+        --background: linear-gradient(to right, #d65753, rgb(224, 148, 87));
+        --color: #ffffff;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+    }
+
+    ion-img {
+        width: 40px;
+        height: auto;
+        margin-right: 5px;
+        /* Ajusta según sea necesario para el espaciado entre la imagen y el título */
+    }
+
+    ion-title {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin: 0;
+        /* Elimina el margen predeterminado del título */
+        padding: 10;
+        /* Elimina el padding predeterminado del título */
+        text-align: left;
+    }
+}
+
+ion-content {
+
+    // ion-img {
+    //   width: 100%;
+    //   height: 100vh;
+    //   position: absolute;
+    //   z-index: -1;
+
+    // }
+
+    .covers-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* Tres columnas con tamaño flexible */
+        gap: 10px;
+        /* Espaciado entre los elementos */
+        padding: 10px
+    }
+
+    app-cover {
+        width: 100%;
+        /* O ajusta el ancho según tus necesidades para dejar espacio para el margen entre los elementos */
+        margin-bottom: 10px;
+        /* Espaciado entre las filas */
+    }
+}
+
+
+ion-tab-bar {
+    --background: #ff3366;
+    /* Mantén el fondo de la barra de pestañas en un tono más claro */
+}
+
+ion-tab-button {
+    color: #fff;
+}
+
+ion-searchbar {
+    --border-radius: 20px;
+    /* Ajusta el valor según sea necesario */
+    --background: rgba(255, 255, 255, 0.1);
+    /* Ajusta el color de fondo según sea necesario */
+
+}
+
+/* Opcional: Si deseas cambiar el estilo del ícono de búsqueda */
+ion-searchbar .searchbar-search-icon {
+    color: #ffffff;
+    /* Ajusta el color del ícono según sea necesario */
+}
+
+/* Opcional: Si deseas cambiar el estilo del botón de cancelar */
+ion-searchbar .searchbar-cancel {
+    color: #ffffff;
+    /* Ajusta el color del botón según sea necesario */
+}
+
+/* Opcional: Si deseas cambiar el estilo del texto de búsqueda */
+ion-searchbar .searchbar-input {
+    color: #ffffff;
+    /* Ajusta el color del texto según sea necesario */
+}
+
+ion-item-divider {
+    --background: linear-gradient(to left, #d65753, #ff3366);
+    color: #ffffff
+}
