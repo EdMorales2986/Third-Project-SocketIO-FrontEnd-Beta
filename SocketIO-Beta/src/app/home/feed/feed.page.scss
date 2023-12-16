@@ -1,0 +1,141 @@
+ion-header {
+    ion-toolbar {
+        --background: linear-gradient(to right, #d65753, rgb(224, 148, 87));
+        --color: #ffffff;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+    }
+
+    ion-img {
+        width: 40px;
+        height: auto;
+        margin-right: 5px;
+    }
+
+    ion-title {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+    }
+}
+
+ion-content {
+    .covers-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 10px
+    }
+
+    app-cover {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    ion-button.show-more-button {
+        --background: rgba(255, 255, 255, 0);
+        --color: #ffffff;
+      }
+      
+      ion-button.show-more-button[fill="clear"] {
+        --background: rgba(255, 255, 255, 0);
+        --color: #ffffff;
+      }
+
+    ion-button.show-more-button ion-text,
+        ion-button.show-less-button ion-text {
+        margin-right: 5px;
+    }
+
+    ion-button.show-more-button ion-icon,
+        ion-button.show-less-button ion-icon {
+        margin-left: 5px;
+    }
+
+}
+
+.tab-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to left, #d65753, #ff3366);
+}
+
+.tab-container ion-tab-button {
+    flex: 1;
+    text-align: center;
+    margin: 0 8px;
+    background-color: transparent;
+    color: azure;
+}
+
+.movie-cover {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+
+    .poster-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        display: block;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 16px;
+        background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+    }
+
+    .details {
+        color: #fff;
+    }
+
+    .name {
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 8px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+    }
+
+    .category {
+        font-size: 14px;
+        margin-top: 4px;
+        background-color: #ff3366;
+        color: #fff;
+        padding: 4px 10px;
+        border-radius: 40px;
+        display: inline-block;
+    }
+}
+
+  .orange-bar {
+    width: 4px;
+    height: 20px;
+    background-color: #d65753;
+    margin-right: 10px;
+  }
+  
+  ion-text.titles {
+    font-weight: bold;
+    font-size: 1.2em;
+    color:#ffffff
+  }

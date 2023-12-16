@@ -1,0 +1,77 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Chats </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar
+      [debounce]="1000"
+      animated="true"
+      (ionInput)="searchUser($event)"
+    ></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="background-image">
+    <ion-img src="https://i.imgur.com/T3hn85p.png"></ion-img>
+  </div>
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 2</ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+      <ion-searchbar
+        [debounce]="1000"
+        animated="true"
+        (ionInput)="searchUser($event)"
+      ></ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-item-group class="group-chat">
+    <ion-list *ngIf="users.length > 0" [inset]="true">
+      <ion-item *ngFor="let user of users">
+        <ion-avatar slot="start">
+          <img [src]="user.profilePic" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ user.name }}</h2>
+          <p>{{ user.email }}</p>
+        </ion-label>
+        <ion-button
+          id="chat-button"
+          fill="clear"
+          color="primary"
+          (click)="openChat(user)"
+          slot="end"
+        >
+          <ion-icon slot="icon-only" name="chatbubbles"></ion-icon
+        ></ion-button>
+      </ion-item>
+    </ion-list>
+
+    <ion-item-divider class="divider">
+      <div class="green-bar"></div>
+      <ion-text class="titles"> Groups </ion-text>
+    </ion-item-divider>
+
+    <ion-list *ngIf="groups.length > 0" [inset]="true">
+      <ion-item *ngFor="let group of groups">
+        <ion-label>
+          <h2>{{ group.roomId }}</h2>
+          <p>Come chat about {{ group.roomId }}</p>
+        </ion-label>
+        <ion-button
+          id="chat-button"
+          fill="clear"
+          color="primary"
+          (click)="openGroup(group)"
+          slot="end"
+        >
+          <ion-icon slot="icon-only" name="chatbubbles-outline"></ion-icon
+        ></ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-item-group>
+</ion-content>

@@ -1,0 +1,300 @@
+ion-header {
+    ion-toolbar {
+        --background: linear-gradient(to right, #d65753, rgb(224, 148, 87));
+        --color: #ffffff;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+    }
+
+    ion-img {
+        width: 40px;
+        height: auto;
+        margin-right: 5px;
+    }
+
+    ion-title {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+    }
+}
+
+
+
+ion-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    ion-img {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        z-index: -1;
+        object-fit: cover;
+    }
+
+    .principal-info {
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        padding-left: 15px;
+    }
+    
+    .movie-cover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.235);
+        border-radius: 20px;
+        max-width: 150px;
+        overflow: hidden;
+    }
+    
+    .poster-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        
+    }
+    
+    .info-container {
+        flex: 1;
+        margin-left: 20px; 
+    }
+    
+    .genres {
+        font-weight: bold;
+        font-size: 24px;
+        margin-bottom: 100px;
+    
+    }
+    
+    .info-genre div {
+        font-size: 14px;
+        padding: 10px;
+        
+    }
+
+    .peli-info {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .info-container {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    ion-card {
+        width: 90%;
+        background-color: rgba(205, 229, 221, 0.1);
+        backdrop-filter: blur(5px);
+    }
+
+    ion-card-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        ion-item {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            --background: #000000;
+
+            ion-input {
+                --background: #000000;
+                margin-bottom: 20px;
+                --placeholder-color: #000000;
+                --color: #000;
+            }
+        }
+
+        ion-button {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 10px;
+            --background: rgb(255, 255, 255);
+            --color: rgb(75, 30, 0);
+            --border-radius: 20px;
+        }
+    }
+}
+
+.movie-cover {
+    overflow: hidden;
+    
+
+    .poster-image {
+        width: 100%;
+        height: auto;
+        
+        display: block;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 16px;
+        background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+    }
+
+    .details {
+        color: #fff;
+    }
+
+    .likes {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .name {
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 8px;
+    }
+}
+
+iframe {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+
+.ratings-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.rating-item {
+    display: flex;
+    align-items: center;
+    margin-right: 10px; /* Agregado para espaciar los elementos */
+
+    &.public-rating {
+        background: linear-gradient(to left, #d65753, rgb(224, 148, 87)); /* Gradiente para la calificación del público */
+        padding-left: 10px; /* Ajuste del padding */
+        padding-right: 10px; /* Ajuste del padding */
+        border-radius: 10px;
+    }
+
+    &.critics-rating {
+        background: linear-gradient(to right, #d65753, #ff3366); /* Gradiente para la calificación de los críticos */
+        padding-left: 10px; /* Ajuste del padding */
+        padding-right: 10px; /* Ajuste del padding */
+        border-radius: 10px;
+    }
+
+    p {
+        margin-left: 5px;
+        color: #fff;
+    }
+
+    .star-icon, .person-icon {
+        font-size: 24px;
+        color: #fff;
+    }
+}
+
+.overview-container {
+    text-align: center;
+    margin-bottom: 5px;
+    position: relative;
+    
+    background: linear-gradient(to top, #1e1e1e, #000000);
+
+    h3 {
+        border-top: 2px solid #d65753; /* Línea horizontal de 2px color rojo encima de h3 */
+        padding-top: 10px; /* Ajusta el espacio encima del h3 según tus necesidades */
+        margin-bottom: 5px;
+    }
+
+    p {
+        margin-bottom: 10px; /* Ajusta el espacio debajo del párrafo según tus necesidades */
+    }
+
+    & > p:last-child {
+        padding-bottom: 20px;
+      }
+
+    /* Añadir más estilos según sea necesario */
+}
+
+.season-container {
+    background-color: #32323244; /* Fondo gris para cada season */
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+  }
+  
+  .season-info {
+    flex: 1;
+  }
+  
+  .season-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .info-details {
+    border-left: 2px solid #ff3366; /* Línea vertical naranja */
+    padding-left: 10px;
+    color: #ffffff;
+  }
+
+  .custom-header {
+    border-bottom: 2px solid #d65753;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+
+  .custom-card {
+    background-color: black;
+    border-radius: 15px;
+    color: white;
+    width: 100%; 
+  }
+  
+  .interaction-buttons{
+    padding-top: 20px;
+  }
+
+
+  .reviews-container {
+    background-color: #000000;
+    
+    ion-card {
+      background-color: rgba(30, 30, 30, 0.119); /* Establece el color de fondo a negro */
+        color:#ffffff;
+        border: 1px solid #d6575369;
+    
+  
+    }
+  }

@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="header-content">
+      <ion-img src="https://i.imgur.com/yFztWNQ.png"></ion-img>
+      <ion-title>Rotten Mango</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+    <ion-item-divider class="divider">
+      <div class="orange-bar"></div>
+      <ion-text class="titles">
+        Movies
+      </ion-text>
+
+    <ion-button
+      *ngIf="coverM.length > 6 && !showMoreMovies"
+      class="show-more-button"
+      (click)="showMoreMovies = true"
+      slot="end"
+    >
+      Show More
+      <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+    </ion-button>
+    <ion-button
+      *ngIf="coverM.length > 6 && showMoreMovies"
+      class="show-more-button"
+      (click)="showMoreMovies = false"
+      slot="end"
+    >
+      Show Less
+      <ion-icon name="chevron-up-outline" class="icon"></ion-icon>
+    </ion-button>
+  </ion-item-divider>
+
+  <div class="covers-container">
+    <ng-container *ngFor="let cover of coverM; let i = index">
+      <div
+        class="movie-cover"
+        *ngIf="i < 6 || showMoreMovies"
+        (click)="openModal1(cover)"
+      >
+        <img [src]="cover.posterURL" alt="Movie Poster" class="poster-image" />
+        <div class="overlay">
+          <div class="details">
+            <div class="name">{{ cover.title }}</div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <ion-item-divider class="divider">
+    <div class="orange-bar"></div>
+    <ion-text class="titles">
+      TV Shows
+    </ion-text>
+    <ion-button
+      *ngIf="coverS.length > 6 && !showMoreTVShows"
+      class="show-more-button"
+      (click)="showMoreTVShows = true"
+      slot="end"
+    >
+      Show More
+      <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+    </ion-button>
+    <ion-button
+      *ngIf="coverS.length > 6 && showMoreTVShows"
+      class="show-more-button"
+      (click)="showMoreTVShows = false"
+      slot="end"
+    >
+      Show Less
+      <ion-icon name="chevron-up-outline" class="icon"></ion-icon>
+    </ion-button>
+  </ion-item-divider>
+
+  <div class="covers-container">
+    <ng-container *ngFor="let cover of coverS; let i = index">
+      <div
+        class="movie-cover"
+        *ngIf="i < 6 || showMoreTVShows"
+        (click)="openModal2(cover)"
+      >
+        <img [src]="cover.posterURL" alt=" " class="poster-image" />
+        <div class="overlay">
+          <div class="details">
+            <div class="name">{{ cover.title }}</div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</ion-content>

@@ -1,0 +1,44 @@
+.tab-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    /* Ajustado para ocupar el 100% de la altura vertical */
+    background: linear-gradient(to left, #d65753, #ff3366);
+}
+
+ion-tab-button {
+    flex: 1;
+    text-align: center;
+    margin: 0 8px;
+    /* Ajusta el valor del margen según tus preferencias */
+    background-color: transparent;
+    color: white;
+}
+
+ion-tab-button tab-button-icon {
+    background-color: transparent;
+    color: white;
+}
+
+:hover {
+    background-color: transparent;
+    color: white;
+}
+
+:active {
+    background-color: transparent;
+    color: white;
+}
+
+:checked {
+    background-color: transparent;
+    color: white;
+}
+
+:focus {
+    background-color: transparent;
+    color: white;
+}
+

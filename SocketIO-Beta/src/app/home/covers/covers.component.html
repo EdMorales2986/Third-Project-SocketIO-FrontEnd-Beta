@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="header-content">
+      <ion-buttons slot="start">
+        <ion-button (click)="closeModal()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Info</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addReview()" color="danger"> 
+      <ion-icon name="create"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <iframe
+    width="100%"
+    height="auto"
+    [src]="this.safeURL"
+    frameborder="0"
+    allowfullscreen
+    *ngIf="this.cover.trailerURL != 'not available'"
+  ></iframe>
+
+  <div class="principal-info">
+      <div class="movie-cover">
+        <img [src]="this.cover.posterURL" alt=" " class="poster-image" />
+      </div>
+  
+
+  <div class="info-container">
+    <div class="info-genre">
+      <ion-text class="genres">Genres</ion-text>
+      <div *ngFor="let genre of this.cover.genres">{{ "- " + genre }}</div>
+      </div>
+  </div>
+  </div>
+
+  <div class="ratings-container">
+    <div class="rating-item public-rating">
+        <ion-icon name="person" class="person-icon"></ion-icon>
+        <p>Public Rating: {{ this.cover.publicRatings }}</p>
+    </div>
+    
+    <div class="rating-item critics-rating">
+        <ion-icon name="star" class="star-icon"></ion-icon>
+        <p>Critics Rating: {{ this.cover.criticsRatings }}</p>
+    </div>
+</div>
+
+  <div class="overview-container">
+    <h3>Overview</h3>
+    <p>{{ this.cover.overview }}</p>
+    <p>
+      Release Date: {{ this.cover.releaseDate || this.cover.firstAirDate }}
+    </p>
+  </div>
+
+  <div *ngIf="this.cover?.seasons">
+    <div *ngFor="let season of this.cover.seasons" class="season-container">
+      <div class="season-info">
+        <div class="season-name">{{ season.name }}</div>
+        <div class="info-details">
+          <p>- Episodes: {{ season.episodes }}</p>
+          <p>- Air Date: {{ season.airdate }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews-container">
+    <ion-item *ngFor="let review of reviews">
+      <ion-card class="custom-card">
+        <ion-card-header class="custom-header">
+          <ion-card-title>{{ review.owner }}
+            <ion-icon
+            name="sparkles"
+            *ngIf="review.type == 'critic'"
+            color="warning"
+          ></ion-icon>
+          
+          </ion-card-title>
+        </ion-card-header>
+  
+        <ion-card-content class="custom-content">
+          <div class="star-rating">
+            <ion-icon
+              name="star"
+              *ngFor="let _ of getStarsArray(review.rating)"
+              color="warning"
+            ></ion-icon>
+          </div>
+          <p>{{ review.description }}</p>
+  
+          <div class="interaction-buttons">
+            <ion-button
+              *ngIf="review.owner == this.user"
+              (click)="deleteReview(review)"
+              color ="danger"
+              fill="outline"
+              class="interaction-button"
+            >
+              <ion-icon name="trash"></ion-icon>
+            </ion-button>
+  
+            <ion-button
+              (click)="viewComments(review)"
+              color ="warning"
+              fill="outline"
+              class="interaction-button"
+            >
+              <ion-icon name="chatbox"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </div>
+</ion-content>
