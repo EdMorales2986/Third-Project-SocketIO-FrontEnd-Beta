@@ -1,17 +1,33 @@
 ion-header {
     ion-toolbar {
-        --background: linear-gradient(to left, #c7423e, rgb(239, 174, 121)); // Fondo degradado de naranja a amarillo
-        --color: #ffffff; // Cambia el color del texto del encabezado
+        --background: linear-gradient(to right, #d65753, rgb(224, 148, 87));
+        --color: #ffffff;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+    }
+
+    ion-img {
+        width: 40px;
+        height: auto;
+        margin-right: 5px;
     }
 
     ion-title {
-        font-size: 1.5em; // Ajusta el tamaño del texto del título
-        font-weight: bold; // Ajusta el peso de la fuente del título
+        font-size: 1.5em;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+        text-align: left;
     }
 }
 
-ion-content {
 
+
+ion-content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,84 +41,70 @@ ion-content {
         object-fit: cover;
     }
 
-    .ion-peli-info {
+    .principal-info {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        margin-top: 100px;
+        justify-content: center; 
+        padding-left: 15px;
     }
-
-    .ion-center {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        //   margin-top: 100px;
+    
+    .movie-cover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.235);
+        border-radius: 20px;
+        max-width: 150px;
+        overflow: hidden;
+    }
+    
+    .poster-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        
+    }
+    
+    .info-container {
+        flex: 1;
+        margin-left: 20px; 
+    }
+    
+    .genres {
+        font-weight: bold;
+        font-size: 24px;
+        margin-bottom: 100px;
+    
+    }
+    
+    .info-genre div {
+        font-size: 14px;
+        padding: 10px;
+        
     }
 
     .peli-info {
+        margin-bottom: 10px;
         display: flex;
         align-items: center;
+        margin-bottom: 20px;
     }
 
     .info-container {
         flex: 1;
         display: flex;
-    }
-
-    .info-column {
-        flex: 1;
-        padding: 20px;
-        margin: 10px;
-        background-color: #ff3366;
-        border-radius: 10px;
-    }
-
-    .info-text {
-        flex: 1;
-        padding: 20px;
-        margin: 10px;
-        background-color: #000000;
-        border-radius: 10px;
-    }
-
-    .transparent-icon-container {
-        display: flex;
         align-items: center;
         justify-content: center;
-        // background-color: rgba(0, 0, 255, 0); /* Color azul con opacidad */
-        width: 7em;
-        /* Ajusta el ancho según tus necesidades */
-        height: 7rem;
-        /* Ajusta la altura según tus necesidades */
-        // border-radius: 50%; /* Hace que el contenedor sea circular */
-        //  object-fit: contain;
-
-        /* Agrega un efecto de sombra radial hacia afuera */
-        // box-shadow: 0 0 40px 40px rgba(255, 255, 255, 0.2);
-        margin-bottom: 20px;
-        /* Ajusta el margen inferior según tus necesidades */
-    }
-
-    .transparent-icon-container ion-img {
-        width: 20%;
-        /* Ajusta el ancho según tus necesidades */
-        height: 20%;
-        object-fit: contain;
     }
 
     ion-card {
         width: 90%;
         background-color: rgba(205, 229, 221, 0.1);
-        backdrop-filter: blur(5px); // Efecto de vidrio esmerilado
+        backdrop-filter: blur(5px);
     }
 
     ion-card-content {
-        //   backdrop-filter: blur(2px); // Puedes ajustar la intensidad del vidrio esmerilado
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-
     }
 
     form {
@@ -114,7 +116,6 @@ ion-content {
         ion-item {
             width: 100%;
             max-width: 700px;
-            /* Ajusta el ancho máximo del formulario según tus necesidades */
             border-radius: 10px;
             margin-bottom: 10px;
             --background: #000000;
@@ -130,25 +131,22 @@ ion-content {
         ion-button {
             width: 100%;
             max-width: 400px;
-            /* Ajusta el ancho máximo del botón según tus necesidades */
             margin-top: 10px;
             --background: rgb(255, 255, 255);
             --color: rgb(75, 30, 0);
             --border-radius: 20px;
-
         }
     }
 }
 
 .movie-cover {
-    position: relative;
     overflow: hidden;
-    border-radius: 8px;
+    
 
     .poster-image {
         width: 100%;
         height: auto;
-        border-radius: 8px;
+        
         display: block;
     }
 
@@ -178,25 +176,125 @@ ion-content {
         font-size: 14px;
         font-weight: bold;
         margin-top: 8px;
-
-    }
-
-    .category {
-        font-size: 14px;
-        margin-top: 4px;
-        background-color: #ff3366;
-        /* Color de fondo de la categoría */
-        color: #fff;
-        /* Color del texto de la categoría */
-        padding: 4px 10px;
-        /* Ajusta el espacio interno del fondo redondeado */
-        border-radius: 40px;
-        /* Radio de borde para hacer el fondo redondeado */
-        display: inline-block;
-        /* Para que el fondo se ajuste al contenido */
     }
 }
 
 iframe {
     max-width: 100%;
+    margin-bottom: 20px;
 }
+
+
+.ratings-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.rating-item {
+    display: flex;
+    align-items: center;
+    margin-right: 10px; /* Agregado para espaciar los elementos */
+
+    &.public-rating {
+        background: linear-gradient(to left, #d65753, rgb(224, 148, 87)); /* Gradiente para la calificación del público */
+        padding-left: 10px; /* Ajuste del padding */
+        padding-right: 10px; /* Ajuste del padding */
+        border-radius: 10px;
+    }
+
+    &.critics-rating {
+        background: linear-gradient(to right, #d65753, #ff3366); /* Gradiente para la calificación de los críticos */
+        padding-left: 10px; /* Ajuste del padding */
+        padding-right: 10px; /* Ajuste del padding */
+        border-radius: 10px;
+    }
+
+    p {
+        margin-left: 5px;
+        color: #fff;
+    }
+
+    .star-icon, .person-icon {
+        font-size: 24px;
+        color: #fff;
+    }
+}
+
+.overview-container {
+    text-align: center;
+    margin-bottom: 5px;
+    position: relative;
+    
+    background: linear-gradient(to top, #1e1e1e, #000000);
+
+    h3 {
+        border-top: 2px solid #d65753; /* Línea horizontal de 2px color rojo encima de h3 */
+        padding-top: 10px; /* Ajusta el espacio encima del h3 según tus necesidades */
+        margin-bottom: 5px;
+    }
+
+    p {
+        margin-bottom: 10px; /* Ajusta el espacio debajo del párrafo según tus necesidades */
+    }
+
+    & > p:last-child {
+        padding-bottom: 20px;
+      }
+
+    /* Añadir más estilos según sea necesario */
+}
+
+.season-container {
+    background-color: #32323244; /* Fondo gris para cada season */
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+  }
+  
+  .season-info {
+    flex: 1;
+  }
+  
+  .season-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .info-details {
+    border-left: 2px solid #ff3366; /* Línea vertical naranja */
+    padding-left: 10px;
+    color: #ffffff;
+  }
+
+  .custom-header {
+    border-bottom: 2px solid #d65753;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+
+  .custom-card {
+    background-color: black;
+    border-radius: 15px;
+    color: white;
+    width: 100%; 
+  }
+  
+  .interaction-buttons{
+    padding-top: 20px;
+  }
+
+
+  .reviews-container {
+    background-color: #000000;
+    
+    ion-card {
+      background-color: rgba(30, 30, 30, 0.119); /* Establece el color de fondo a negro */
+        color:#ffffff;
+        border: 1px solid #d6575369;
+    
+  
+    }
+  }

@@ -1,5 +1,6 @@
 <div class="wrapper">
   <ion-range
+  color="warning"
     min="1"
     max="5"
     step="1"
@@ -11,8 +12,8 @@
     [pinFormatter]="pinFormatter"
     [(ngModel)]="rating"
   >
-    <ion-icon size="small" slot="start" name="star"></ion-icon>
-    <ion-icon size="large" slot="end" name="star"></ion-icon>
+    <ion-icon size="small" slot="start" name="star-outline" color="warning"></ion-icon>
+    <ion-icon size="large" slot="end" name="star" color="warning"></ion-icon>
   </ion-range>
 
   <ion-label position="floating">Description</ion-label>
@@ -23,13 +24,14 @@
   ></ion-textarea>
 
   <ion-button
-    (click)="addReview()"
-    color="primary"
-    expand="block"
-    [disabled]="loading"
-    >Add Review</ion-button
-  >
-  <ion-button (click)="dismissModal()" color="danger" expand="block"
+  (click)="addReview()"
+  color="danger"
+  expand="block"
+  [disabled]="loading"
+>
+  Add Review
+</ion-button>
+  <ion-button (click)="dismissModal()" color="danger"  fill="outline"  expand="block"
     >Cancel</ion-button
   >
 </div>

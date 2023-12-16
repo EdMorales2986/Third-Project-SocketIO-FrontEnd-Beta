@@ -18,6 +18,7 @@ export class CoversComponent implements OnInit {
   safeURL: any;
   reviews: any = [];
   user: string = '';
+  
 
   constructor(
     private http: HttpClient,
@@ -25,6 +26,9 @@ export class CoversComponent implements OnInit {
     private sanitizer: DomSanitizer
   ) {}
 
+  getStarsArray(stars: number): any[] {
+    return new Array(stars);
+  }
   dismissModal() {
     this.modalController.dismiss();
   }
@@ -99,4 +103,11 @@ export class CoversComponent implements OnInit {
 
     this.loadReviews();
   }
+
+  closeModal() {
+    // Cierra el modal
+    this.modalController.dismiss();
+  }
+
+  
 }

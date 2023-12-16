@@ -17,7 +17,8 @@ export class DeleteaccountComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private modalController: ModalController,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private router: Router
   ) {}
 
   dismissModal() {
@@ -37,6 +38,7 @@ export class DeleteaccountComponent implements OnInit {
         next: (data: any) => {
           this.loading = false;
           this.modalController.dismiss();
+          this.router.navigate(['/']);
         },
         error: async (error: HttpErrorResponse) => {
           this.loading = false;

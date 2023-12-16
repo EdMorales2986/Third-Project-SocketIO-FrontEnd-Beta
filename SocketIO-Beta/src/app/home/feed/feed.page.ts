@@ -15,6 +15,8 @@ export class FeedPage implements OnInit {
   coverM: any = [];
   coverS: any = [];
   user: string = '';
+  showMoreMovies: boolean = false;
+  showMoreTVShows: boolean = false;
 
   constructor(
     private http: HttpClient,
@@ -28,7 +30,6 @@ export class FeedPage implements OnInit {
         component: CoversComponent,
         componentProps: {
           cover: cover,
-          // coverS: this.coverS,
         },
       })
       .then((modal) => modal.present());
@@ -39,7 +40,6 @@ export class FeedPage implements OnInit {
       .create({
         component: CoversComponent,
         componentProps: {
-          // coverM: this.coverM,
           cover: cover,
         },
       })
@@ -47,40 +47,18 @@ export class FeedPage implements OnInit {
   }
 
   async ngOnInit() {
-    this.http
-      .get('https://tmdb-for-a-angularmovile.onrender.com/movies')
-      .subscribe((data: any) => {
-        this.coverM = data;
-        // console.log(this.coverM[0].genres);
-      });
-
-    this.http
-      .get('https://tmdb-for-a-angularmovile.onrender.com/series')
-      .subscribe((data: any) => {
-        this.coverS = data;
-      });
-
-    const data = await Preferences.get({ key: 'alias' });
-    this.user = data.value!;
-
-    // console.log(data);
+    this.loadData();
   }
 
   async ionViewDidEnter() {
-    this.coverM = [];
-    this.coverS = [];
+    this.loadData();
+  }
 
-    this.http
-      .get('https://tmdb-for-a-angularmovile.onrender.com/movies')
-      .subscribe((data: any) => {
-        this.coverM = data;
-        // console.log(this.coverM[0].genres);
-      });
+  async loadData() {
+    this.coverM = await this.http.get('https://tmdb-for-a-angularmovile.onrender.com/movies').toPromise();
+    this.coverS = await this.http.get('https://tmdb-for-a-angularmovile.onrender.com/series').toPromise();
 
-    this.http
-      .get('https://tmdb-for-a-angularmovile.onrender.com/series')
-      .subscribe((data: any) => {
-        this.coverS = data;
-      });
+    const data = await Preferences.get({ key: 'alias' });
+    this.user = data.value!;
   }
 }

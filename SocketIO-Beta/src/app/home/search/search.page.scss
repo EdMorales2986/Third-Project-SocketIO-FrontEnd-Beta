@@ -1,0 +1,151 @@
+ion-header {
+    ion-toolbar {
+        --background: linear-gradient(to right, #d65753, rgb(224, 148, 87));
+        --color: #ffffff;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+    }
+
+    ion-img {
+        width: 40px;
+        height: auto;
+        margin-right: 5px;
+        /* Ajusta según sea necesario para el espaciado entre la imagen y el título */
+    }
+
+    ion-title {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin: 0;
+        /* Elimina el margen predeterminado del título */
+        padding: 10;
+        /* Elimina el padding predeterminado del título */
+        text-align: left;
+    }
+}
+
+
+
+ion-tab-bar {
+    --background: #ff3366;
+    /* Mantén el fondo de la barra de pestañas en un tono más claro */
+}
+
+ion-tab-button {
+    color: #fff;
+}
+
+ion-searchbar {
+    --border-radius: 20px;
+    /* Ajusta el valor según sea necesario */
+    --background: rgba(255, 255, 255, 0.1);
+    /* Ajusta el color de fondo según sea necesario */
+
+}
+
+/* Opcional: Si deseas cambiar el estilo del ícono de búsqueda */
+ion-searchbar .searchbar-search-icon {
+    color: #ffffff;
+    /* Ajusta el color del ícono según sea necesario */
+}
+
+/* Opcional: Si deseas cambiar el estilo del botón de cancelar */
+ion-searchbar .searchbar-cancel {
+    color: #ffffff;
+    /* Ajusta el color del botón según sea necesario */
+}
+
+/* Opcional: Si deseas cambiar el estilo del texto de búsqueda */
+ion-searchbar .searchbar-input {
+    color: #ffffff;
+    /* Ajusta el color del texto según sea necesario */
+}
+
+ion-text.titles {
+    font-weight: bold;
+    font-size: 1.2em;
+    color:#ffffff
+    
+}
+
+ion-toolbar {
+    ion-segment {
+      ion-segment-button {
+        font-size: 12px; // Tamaño de fuente más pequeño, ajusta según sea necesario
+        padding: 2px 2px; // Espaciado interno más pequeño, ajusta según sea necesario
+      }
+    }
+  
+    ion-select {
+      font-size: 16px; // Tamaño de fuente más pequeño para las opciones del ion-select
+    }
+  }
+
+  .custom-button {
+    background: linear-gradient(to right, #d65753, rgb(224, 148, 87));
+    color: #ffffff;
+    border: none; /* Asegúrate de que no haya borde */
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: none; /* Asegúrate de que no haya sombra */
+  }
+  
+  .custom-button ion-icon {
+    color: #ffffff;
+  }
+  
+  ion-button.custom-button {
+    --background: none; /* Asegúrate de que Ionic no esté aplicando estilos de fondo */
+    --box-shadow: none; /* Asegúrate de que no haya sombra */
+  }
+
+  ion-segment-button::part(indicator-background) {
+    background: #d65753;
+  }
+  
+  /* Material Design styles */
+  ion-segment-button.md::part(native) {
+    color: #ffffff;
+  }
+  
+  .segment-button-checked.md::part(native) {
+    color: #d65753;
+  }
+  
+  ion-segment-button.md::part(indicator-background) {
+    height: 4px;
+  }
+  
+  /* iOS styles */
+  ion-segment-button.ios::part(native) {
+    color: #08a391;
+  }
+  
+  .segment-button-checked.ios::part(native) {
+    color: #fff;
+  }
+  
+  ion-segment-button.ios::part(indicator-background) {
+    border-radius: 20px;
+  }
+
+  ion-select {
+    --placeholder-color: #ffffff;
+    --placeholder-opacity: 1;
+    margin-right: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  
+  ion-select::part(icon) {
+    color: #ffffff;
+    margin-right: 10px;
+    opacity: 1;
+  }
+

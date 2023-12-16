@@ -64,9 +64,6 @@ export class UserPage implements OnInit {
         cssClass: 'my-custom-class',
       })
       .then((modal) => {
-        modal.onDidDismiss().then(() => {
-          this.logout();
-        });
         modal.present();
       });
   }

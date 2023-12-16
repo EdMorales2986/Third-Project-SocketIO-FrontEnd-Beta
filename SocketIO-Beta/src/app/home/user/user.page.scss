@@ -147,3 +147,11 @@ ion-card-header {
     flex-direction: column;
     align-items: center;
 }
+
+ion-card-title{
+    font-weight: bold;
+    color:#ffffff;
+    background-color: rgba(228, 60, 30, 0.596);
+    padding:  5px  20px 5px 20px;
+    border-radius: 20px;
+}

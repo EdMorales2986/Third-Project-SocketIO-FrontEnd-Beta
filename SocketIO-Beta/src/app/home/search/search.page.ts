@@ -23,6 +23,10 @@ export class SearchPage implements OnInit {
     public modalController: ModalController
   ) {}
 
+  contentHidden = true;
+
+  selectedFilter: string = 'duration';
+
   openModal1(cover: any) {
     this.modalController
       .create({

@@ -10,13 +10,6 @@ ion-header {
         padding-left: 10px;
     }
 
-    ion-img {
-        width: 40px;
-        height: auto;
-        margin-right: 5px;
-        /* Ajusta según sea necesario para el espaciado entre la imagen y el título */
-    }
-
     ion-title {
         font-size: 1.5em;
         font-weight: bold;
@@ -28,33 +21,15 @@ ion-header {
     }
 }
 
-ion-content {
-
-    // ion-img {
-    //   width: 100%;
-    //   height: 100vh;
-    //   position: absolute;
-    //   z-index: -1;
-
-    // }
-
-    .covers-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        /* Tres columnas con tamaño flexible */
-        gap: 10px;
-        /* Espaciado entre los elementos */
-        padding: 10px
-    }
-
-    app-cover {
-        width: 100%;
-        /* O ajusta el ancho según tus necesidades para dejar espacio para el margen entre los elementos */
-        margin-bottom: 10px;
-        /* Espaciado entre las filas */
-    }
-}
-
+ion-img {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+  }
 
 ion-tab-bar {
     --background: #ff3366;
@@ -91,7 +66,38 @@ ion-searchbar .searchbar-input {
     /* Ajusta el color del texto según sea necesario */
 }
 
-ion-item-divider {
-    --background: linear-gradient(to left, #d65753, #ff3366);
-    color: #ffffff
+ion-text.titles {
+    font-weight: bold;
+    font-size: 1.2em;
+    color:#ffffff
+    
+  }
+
+  .green-bar {
+    width: 4px;
+    height: 20px;
+    background-color: #4e743d;
+    margin-right: 10px;
+  }
+
+
+  ion-icon{
+    color:#ffffff94
+  }
+
+  .group-chat ion-text.titles {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #ffffff; /* Color blanco */
+}
+
+.group-chat ion-list {
+    background-color: transparent;
+}
+
+.group-chat ion-item {
+    background-color: #ffffff;
+    backdrop-filter: blur(5px); /* Ajusta el valor del desenfoque según sea necesario */
+    border-radius: 10px; /* Ajusta el radio de borde según sea necesario */
+    margin-bottom: 8px; /* Ajusta el margen según sea necesario */
 }

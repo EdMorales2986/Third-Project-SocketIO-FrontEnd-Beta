@@ -5,112 +5,122 @@
       (ionInput)="search($event)"
     ></ion-searchbar>
   </ion-toolbar>
-
-  <ion-toolbar>
-    <ion-select
-      label="Movie filter by duration"
-      justify="end"
-      (ionChange)="byDuration($event)"
-    >
-      <ion-select-option value="60">Under an hour long</ion-select-option>
-      <ion-select-option value="120">Under two hours long</ion-select-option>
-      <ion-select-option value="180">Under three hours long</ion-select-option>
-    </ion-select>
-  </ion-toolbar>
-
-  <ion-toolbar>
-    <ion-select
-      label="Movie filter by genre"
-      justify="end"
-      (ionChange)="byMovieGenre($event)"
-    >
-      <ion-item-divider>Movies</ion-item-divider>
-      <ion-select-option value="Action">Action</ion-select-option>
-      <ion-select-option value="Adventure">Adventure</ion-select-option>
-      <ion-select-option value="Animation">Animation</ion-select-option>
-      <ion-select-option value="Comedy">Comedy</ion-select-option>
-      <ion-select-option value="Crime">Crime</ion-select-option>
-      <ion-select-option value="Documentary">Documentary</ion-select-option>
-      <ion-select-option value="Drama">Drama</ion-select-option>
-      <ion-select-option value="Family">Family</ion-select-option>
-      <ion-select-option value="Fantasy">Fantasy</ion-select-option>
-      <ion-select-option value="History">History</ion-select-option>
-      <ion-select-option value="Horror">Horror</ion-select-option>
-      <ion-select-option value="Music">Music</ion-select-option>
-      <ion-select-option value="Mystery">Mystery</ion-select-option>
-      <ion-select-option value="Romance">Romance</ion-select-option>
-      <ion-select-option value="Science Fiction"
-        >Science Fiction</ion-select-option
-      >
-      <ion-select-option value="TV Movie">TV Movie</ion-select-option>
-      <ion-select-option value="Thriller">Thriller</ion-select-option>
-      <ion-select-option value="War">War</ion-select-option>
-      <ion-select-option value="Western">Western</ion-select-option>
-    </ion-select>
-  </ion-toolbar>
-
-  <ion-toolbar>
-    <ion-select
-      label="Serie filter by genre"
-      justify="end"
-      (ionChange)="bySeriesGenre($event)"
-    >
-      <ion-item-divider>Movies</ion-item-divider>
-      <ion-select-option value="Action & Adventure"
-        >Action & Adventure</ion-select-option
-      >
-      <ion-select-option value="Animation">Animation</ion-select-option>
-      <ion-select-option value="Comedy">Comedy</ion-select-option>
-      <ion-select-option value="Crime">Crime</ion-select-option>
-      <ion-select-option value="Documentary">Documentary</ion-select-option>
-      <ion-select-option value="Drama">Drama</ion-select-option>
-      <ion-select-option value="Family">Family</ion-select-option>
-      <ion-select-option value="Kids">Kids</ion-select-option>
-      <ion-select-option value="Mystery">Mystery</ion-select-option>
-      <ion-select-option value="News">News</ion-select-option>
-      <ion-select-option value="Reality">Reality</ion-select-option>
-      <ion-select-option value="Sci-Fi & Fantasy"
-        >Sci-Fi & Fantasy</ion-select-option
-      >
-      <ion-select-option value="Soap">Soap</ion-select-option>
-      <ion-select-option value="Talk">Talk</ion-select-option>
-      <ion-select-option value="War & Politics"
-        >War & Politics</ion-select-option
-      >
-      <ion-select-option value="Western">Western</ion-select-option>
-    </ion-select>
-  </ion-toolbar>
-
-  <ion-toolbar>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-input
-            [(ngModel)]="startYear"
-            placeholder="Start Year"
-            class="custom-input"
-            min="1800"
-            type="number"
-          ></ion-input>
-        </ion-col>
-        <ion-col>
-          <ion-input
-            [(ngModel)]="endYear"
-            placeholder="End Year"
-            class="custom-input"
-            min="1800"
-            type="number"
-          ></ion-input>
-        </ion-col>
-        <ion-col>
-          <ion-button (click)="byYear(startYear, endYear)" class="custom-button"
-            >Search</ion-button
-          >
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-toolbar>
 </ion-header>
+
+<ion-toolbar>
+  <ion-segment [(ngModel)]="selectedFilter">
+    <ion-segment-button value="duration">Movie duration</ion-segment-button>
+    <ion-segment-button value="genre">Movie genre</ion-segment-button>
+    <ion-segment-button value="seriesGenre">Serie genre</ion-segment-button>
+  </ion-segment>
+</ion-toolbar>
+
+<ion-toolbar *ngIf="selectedFilter === 'duration'">
+  <ion-select  interface="popover" color="white"
+    label="Movie filter by duration"
+    justify="end"
+    (ionChange)="byDuration($event)"
+  >  
+
+  <ion-select-option value="60">Under an hour long</ion-select-option>
+  <ion-select-option value="120">Under two hours long</ion-select-option>
+  <ion-select-option value="180">Under three hours long</ion-select-option>
+
+  </ion-select>
+</ion-toolbar>
+
+<ion-toolbar *ngIf="selectedFilter === 'genre'">
+  <ion-select interface="popover" color="white"
+    label="Movie filter by genre"
+    justify="end"
+    (ionChange)="byMovieGenre($event)"
+  >
+  
+  <ion-item-divider>Movies</ion-item-divider>
+  <ion-select-option value="Action">Action</ion-select-option>
+  <ion-select-option value="Adventure">Adventure</ion-select-option>
+  <ion-select-option value="Animation">Animation</ion-select-option>
+  <ion-select-option value="Comedy">Comedy</ion-select-option>
+  <ion-select-option value="Crime">Crime</ion-select-option>
+  <ion-select-option value="Documentary">Documentary</ion-select-option>
+  <ion-select-option value="Drama">Drama</ion-select-option>
+  <ion-select-option value="Family">Family</ion-select-option>
+  <ion-select-option value="Fantasy">Fantasy</ion-select-option>
+  <ion-select-option value="History">History</ion-select-option>
+  <ion-select-option value="Horror">Horror</ion-select-option>
+  <ion-select-option value="Music">Music</ion-select-option>
+  <ion-select-option value="Mystery">Mystery</ion-select-option>
+  <ion-select-option value="Romance">Romance</ion-select-option>
+  <ion-select-option value="Science Fiction"
+    >Science Fiction</ion-select-option
+  >
+  <ion-select-option value="TV Movie">TV Movie</ion-select-option>
+  <ion-select-option value="Thriller">Thriller</ion-select-option>
+  <ion-select-option value="War">War</ion-select-option>
+  <ion-select-option value="Western">Western</ion-select-option>
+
+  </ion-select>
+</ion-toolbar>
+
+<ion-toolbar *ngIf="selectedFilter === 'seriesGenre'">
+  <ion-select interface="popover" color="white"
+    label="Serie filter by genre"
+    justify="end"
+    (ionChange)="bySeriesGenre($event)"
+  >
+   
+  <ion-select-option value="Animation">Animation</ion-select-option>
+  <ion-select-option value="Comedy">Comedy</ion-select-option>
+  <ion-select-option value="Crime">Crime</ion-select-option>
+  <ion-select-option value="Documentary">Documentary</ion-select-option>
+  <ion-select-option value="Drama">Drama</ion-select-option>
+  <ion-select-option value="Family">Family</ion-select-option>
+  <ion-select-option value="Kids">Kids</ion-select-option>
+  <ion-select-option value="Mystery">Mystery</ion-select-option>
+  <ion-select-option value="News">News</ion-select-option>
+  <ion-select-option value="Reality">Reality</ion-select-option>
+  <ion-select-option value="Sci-Fi & Fantasy"
+    >Sci-Fi & Fantasy</ion-select-option
+  >
+  <ion-select-option value="Soap">Soap</ion-select-option>
+  <ion-select-option value="Talk">Talk</ion-select-option>
+  <ion-select-option value="War & Politics"
+    >War & Politics</ion-select-option
+  >
+  <ion-select-option value="Western">Western</ion-select-option>
+
+  </ion-select>
+</ion-toolbar>
+
+<ion-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-input
+          [(ngModel)]="startYear"
+          placeholder="Start Year"
+          class="custom-input"
+          min="1800"
+          type="number"
+        ></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-input
+          [(ngModel)]="endYear"
+          placeholder="End Year"
+          class="custom-input"
+          min="1800"
+          type="number"
+        ></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="byYear(startYear, endYear)" class="custom-button">
+          <ion-icon name="calendar"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-toolbar>
 
 <ion-content>
   <ion-item-group>
